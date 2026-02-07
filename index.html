@@ -1,128 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Mimi Ji ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A romantic Valentine proposal for Mimi Ji from Barfiee">
+    <title>For Mimi Ji ❤️ | A Love Letter from Barfiee</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="style.css">
-
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'romantic-pink': '#FFE5EC',
+                        'soft-lavender': '#E5D4ED',
+                        'warm-peach': '#FFD4D4',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-pink-50 text-gray-800">
+<body class="bg-gradient-to-br from-pink-50 via-purple-50 to-pink-100 text-gray-800 overflow-x-hidden">
 
-<!-- Landing Section -->
-<section class="h-screen flex flex-col justify-center items-center text-center px-6">
+    <!-- Romantic Progress Indicator -->
+    <div id="progressBar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-pink-400 via-purple-400 to-pink-500 z-50 transition-all duration-300" style="width: 0%"></div>
 
-<h1 class="text-4xl md:text-6xl font-bold mb-6 typing">
-Hi Mimi Ji...
-</h1>
+    <!-- Floating Hearts Background -->
+    <div id="floatingHearts" class="fixed inset-0 pointer-events-none z-0"></div>
 
-<p class="mb-6 text-lg">
-This website may contain emotional vulnerability and one forgetful human in love with you.
-</p>
+    <!-- Easter Egg: Idle Cat Popup -->
+    <div id="idleCatPopup" class="hidden fixed bottom-8 right-8 bg-white rounded-2xl shadow-2xl p-6 z-50 max-w-xs animate-bounce-slow">
+        <div class="flex items-start gap-3">
+            <span class="text-4xl">🐱</span>
+            <div>
+                <p class="text-sm font-medium text-gray-700">Meow meow... don't leave! 🥺</p>
+                <p class="text-xs text-gray-500 mt-1">Barfiee worked hard on this...</p>
+            </div>
+        </div>
+        <button onclick="closeIdlePopup()" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">✕</button>
+    </div>
 
-<button onclick="nextSection()" 
-class="bg-pink-400 text-white px-6 py-3 rounded-full hover:bg-pink-500 transition">
-Begin Observation 🐾
-</button>
+    <!-- Easter Egg: Hidden Cat Messages -->
+    <div id="catMessages" class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-3xl shadow-2xl p-8 z-50 max-w-md text-center">
+        <span class="text-6xl mb-4 block">😻</span>
+        <p id="secretMessage" class="text-lg font-medium text-pink-600 mb-4"></p>
+        <button onclick="closeCatMessage()" class="bg-pink-400 text-white px-6 py-2 rounded-full hover:bg-pink-500 transition">
+            Aww, okay 💕
+        </button>
+    </div>
 
-</section>
+    <!-- Section 1: Landing Section with Animated Introduction -->
+    <section id="landing" class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-12 relative">
+        
+        <!-- Animated Cat Paws -->
+        <div class="cat-paws absolute top-20 left-10 opacity-30">🐾</div>
+        <div class="cat-paws absolute bottom-32 right-16 opacity-30" style="animation-delay: 1s">🐾</div>
+        
+        <div class="relative z-10 max-w-2xl">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-pink-600 typing-animation">
+                Hi Mimi Ji...
+            </h1>
+            
+            <div class="typing-text-container mb-8">
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                    This is <span class="font-semibold text-purple-600">Barfiee</span>...<br>
+                    <span class="text-sm md:text-base italic text-gray-600">
+                        (yes, the forgetful one who somehow never forgot you 💕)
+                    </span>
+                </p>
+            </div>
 
+            <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 mb-8 shadow-lg">
+                <p class="text-base md:text-lg text-gray-600">
+                    ⚠️ <span class="font-medium">Warning:</span> This website contains<br>
+                    emotional vulnerability and one human deeply in love with you.
+                </p>
+            </div>
 
-<!-- Story Section -->
-<section id="story" class="hidden p-10 text-center">
+            <button 
+                onclick="goToSection('story')" 
+                class="bg-gradient-to-r from-pink-400 to-purple-400 text-white px-8 py-4 rounded-full text-lg font-medium hover:shadow-2xl hover:scale-105 transition-all duration-300 transform hover:-translate-y-1">
+                Begin Observation Meow Meow 🐾
+            </button>
 
-<h2 class="text-3xl font-bold mb-6">How We Met</h2>
-
-<p class="max-w-xl mx-auto text-lg">
-Out of all places in the universe...
-We met through a reel comment section.
-
-I don’t remember the reel...
-
-But I never forgot you ❤️
-</p>
-
-<button onclick="showQuiz()" 
-class="mt-8 bg-purple-400 text-white px-6 py-3 rounded-full">
-Continue
-</button>
-
-</section>
-
-
-<!-- Quiz Section -->
-<section id="quiz" class="hidden p-10 text-center">
-
-<h2 class="text-3xl font-bold mb-6">Important Question</h2>
-
-<p class="mb-6">If you were a cat, which one would you be?</p>
-
-<button onclick="saveAnswer('Queen Cat')" class="quiz-btn">Queen Cat 👑</button>
-<button onclick="saveAnswer('Lazy Cat')" class="quiz-btn">Lazy Cat 😴</button>
-<button onclick="saveAnswer('Mischievous Cat')" class="quiz-btn">Mischievous Cat 😼</button>
-
-</section>
-
-
-<!-- Emotional Section -->
-<section id="emotion" class="hidden p-10 text-center">
-
-<h2 class="text-3xl font-bold mb-6">Something Honest</h2>
-
-<p class="max-w-xl mx-auto text-lg">
-I know I annoy you sometimes...
-But I never joke about my feelings for you.
-
-Talking to you makes my day better.
-</p>
-
-<button onclick="showProposal()" 
-class="mt-8 bg-indigo-400 text-white px-6 py-3 rounded-full">
-Continue
-</button>
-
-</section>
+            <!-- Hidden Easter Egg Cat -->
+            <div class="mt-12">
+                <span class="text-4xl cursor-pointer hover:scale-125 transition-transform inline-block easter-cat" onclick="showCatMessage(0)">
+                    😺
+                </span>
+            </div>
+        </div>
+    </section>
 
 
-<!-- Proposal Section -->
-<section id="proposal" class="hidden h-screen flex flex-col justify-center items-center text-center">
+    <!-- Section 2: How We Met - Memory Cards -->
+    <section id="story" class="hidden min-h-screen flex flex-col justify-center items-center px-6 py-12 relative">
+        
+        <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-purple-600 fade-in">
+            How Our Story Began ✨
+        </h2>
 
-<h1 class="text-5xl font-bold mb-8">
-Mimi Ji... Will you be my Valentine?
-</h1>
+        <div class="max-w-4xl w-full grid md:grid-cols-2 gap-8 mb-12">
+            
+            <!-- Memory Card 1 -->
+            <div class="polaroid-card">
+                <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                    <div class="text-6xl mb-4 text-center">📱</div>
+                    <h3 class="text-xl font-bold text-pink-600 mb-3">Random Comment Section</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Out of millions of reels in the universe, we met through a comment section. 
+                        I honestly don't even remember which reel it was...
+                    </p>
+                    <div class="hidden-compliment mt-4 p-3 bg-pink-50 rounded-lg text-sm text-pink-700 italic">
+                        "But destiny knew what it was doing 💫"
+                    </div>
+                </div>
+            </div>
 
-<div class="flex gap-6">
-<button onclick="celebrate()" 
-class="bg-red-400 text-white px-8 py-3 rounded-full text-xl">
-YES ❤️
-</button>
+            <!-- Memory Card 2 -->
+            <div class="polaroid-card" style="animation-delay: 0.2s">
+                <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                    <div class="text-6xl mb-4 text-center">💬</div>
+                    <h3 class="text-xl font-bold text-purple-600 mb-3">First Message</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        I messaged you randomly, probably said something silly. 
+                        Classic Barfiee move - impulsive but genuine.
+                    </p>
+                    <div class="hidden-compliment mt-4 p-3 bg-purple-50 rounded-lg text-sm text-purple-700 italic">
+                        "Best random decision I ever made 🎯"
+                    </div>
+                </div>
+            </div>
 
-<button id="noBtn" 
-class="bg-gray-300 px-8 py-3 rounded-full text-xl">
-NO 😅
-</button>
-</div>
+            <!-- Memory Card 3 -->
+            <div class="polaroid-card" style="animation-delay: 0.4s">
+                <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                    <div class="text-6xl mb-4 text-center">🌟</div>
+                    <h3 class="text-xl font-bold text-pink-600 mb-3">The Connection</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        We started talking, and somehow... you didn't run away from my chaos. 
+                        You became my favorite notification.
+                    </p>
+                    <div class="hidden-compliment mt-4 p-3 bg-pink-50 rounded-lg text-sm text-pink-700 italic">
+                        "You're the calm to my storm 🌸"
+                    </div>
+                </div>
+            </div>
 
-</section>
+            <!-- Memory Card 4 -->
+            <div class="polaroid-card" style="animation-delay: 0.6s">
+                <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                    <div class="text-6xl mb-4 text-center">❤️</div>
+                    <h3 class="text-xl font-bold text-purple-600 mb-3">Never Forgot You</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        I may forget where I kept my keys, what I ate yesterday, or even that reel... 
+                        but I never forgot you, Mimi Ji. Never will.
+                    </p>
+                    <div class="hidden-compliment mt-4 p-3 bg-purple-50 rounded-lg text-sm text-purple-700 italic">
+                        "You're unforgettable, Meow Meow 💖"
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button 
+            onclick="goToSection('quiz')" 
+            class="bg-gradient-to-r from-purple-400 to-pink-400 text-white px-8 py-4 rounded-full text-lg font-medium hover:shadow-2xl hover:scale-105 transition-all duration-300">
+            Continue Our Journey 🐾
+        </button>
+
+        <!-- Easter Egg Cat -->
+        <div class="mt-8">
+            <span class="text-3xl cursor-pointer hover:scale-125 transition-transform inline-block easter-cat" onclick="showCatMessage(1)">
+                😸
+            </span>
+        </div>
+    </section>
 
 
-<!-- Celebration -->
-<section id="celebration" class="hidden h-screen flex flex-col justify-center items-center text-center">
+    <!-- Section 3: Interactive Cat Personality Quiz -->
+    <section id="quiz" class="hidden min-h-screen flex flex-col justify-center items-center px-6 py-12">
+        
+        <h2 class="text-4xl md:text-5xl font-bold mb-8 text-center text-pink-600 fade-in">
+            Meow Meow's Personality Quiz 🐱
+        </h2>
 
-<h1 class="text-5xl font-bold text-pink-500">
-You made me happiest human alive ❤️
-</h1>
+        <p class="text-lg text-gray-600 mb-12 max-w-2xl text-center">
+            Let's find out what kind of adorable cat you are, Mimi Ji!
+        </p>
 
-<p class="mt-4 text-lg">
-Thank you for choosing me Mimi Ji.
-</p>
+        <!-- Quiz Container -->
+        <div id="quizContainer" class="max-w-2xl w-full">
+            
+            <!-- Question 1 -->
+            <div class="quiz-question active bg-white rounded-2xl shadow-xl p-8 mb-6">
+                <h3 class="text-2xl font-bold text-purple-600 mb-6">
+                    Question 1: What's your ideal way to spend time?
+                </h3>
+                <div class="space-y-4">
+                    <button onclick="selectAnswer(1, 'Queen Cat')" class="quiz-option">
+                        <span class="text-3xl mr-3">👑</span>
+                        <span>Being pampered and adored (Queen Cat)</span>
+                    </button>
+                    <button onclick="selectAnswer(1, 'Lazy Cat')" class="quiz-option">
+                        <span class="text-3xl mr-3">😴</span>
+                        <span>Cozy naps in warm spots (Lazy Cat)</span>
+                    </button>
+                    <button onclick="selectAnswer(1, 'Playful Cat')" class="quiz-option">
+                        <span class="text-3xl mr-3">😼</span>
+                        <span>Playful mischief and fun (Mischievous Cat)</span>
+                    </button>
+                    <button onclick="selectAnswer(1, 'Gentle Cat')" class="quiz-option">
+                        <span class="text-3xl mr-3">😻</span>
+                        <span>Gentle cuddles and purrs (Gentle Cat)</span>
+                    </button>
+                </div>
+            </div>
 
-</section>
+            <!-- Question 2 -->
+            <div class="quiz-question bg-white rounded-2xl shadow-xl p-8 mb-6" style="display: none;">
+                <h3 class="text-2xl font-bold text-pink-600 mb-6">
+                    Question 2: How do you handle Barfiee's forgetfulness?
+                </h3>
+                <div class="space-y-4">
+                    <button onclick="selectAnswer(2, 'Patient')" class="quiz-option">
+                        <span class="text-3xl mr-3">😌</span>
+                        <span>With patience and gentle reminders</span>
+                    </button>
+                    <button onclick="selectAnswer(2, 'Amused')" class="quiz-option">
+                        <span class="text-3xl mr-3">😄</span>
+                        <span>Find it cute and amusing</span>
+                    </button>
+                    <button onclick="selectAnswer(2, 'Playfully Annoyed')" class="quiz-option">
+                        <span class="text-3xl mr-3">😾</span>
+                        <span>Get playfully annoyed (but still love him)</span>
+                    </button>
+                    <button onclick="selectAnswer(2, 'Helpful')" class="quiz-option">
+                        <span class="text-3xl mr-3">💕</span>
+                        <span>Help him remember with love</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question bg-white rounded-2xl shadow-xl p-8 mb-6" style="display: none;">
+                <h3 class="text-2xl font-bold text-purple-600 mb-6">
+                    Question 3: Your perfect evening with Barfiee?
+                </h3>
+                <div class="space-y-4">
+                    <button onclick="selectAnswer(3, 'Romantic')" class="quiz-option">
+                        <span class="text-3xl mr-3">🌹</span>
+                        <span>Romantic dinner and sweet conversations</span>
+                    </button>
+                    <button onclick="selectAnswer(3, 'Cozy')" class="quiz-option">
+                        <span class="text-3xl mr-3">🛋️</span>
+                        <span>Cozy time at home, just being together</span>
+                    </button>
+                    <button onclick="selectAnswer(3, 'Adventure')" class="quiz-option">
+                        <span class="text-3xl mr-3">🎢</span>
+                        <span>Fun adventures and new experiences</span>
+                    </button>
+                    <button onclick="selectAnswer(3, 'Simple')" class="quiz-option">
+                        <span class="text-3xl mr-3">✨</span>
+                        <span>Simple moments that feel magical</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Quiz Result Placeholder -->
+        <div id="quizResult" class="hidden max-w-2xl w-full bg-white rounded-2xl shadow-2xl p-8 text-center">
+            <div class="text-7xl mb-4">😻</div>
+            <h3 class="text-3xl font-bold text-pink-600 mb-4">You're Perfect Just As You Are!</h3>
+            <p class="text-lg text-gray-700 mb-6">
+                No matter what kind of cat you are, you're MY favorite Meow Meow. 
+                Every trait, every quirk, every moment with you is precious to me.
+            </p>
+            <button 
+                onclick="goToSection('emotion')" 
+                class="bg-gradient-to-r from-pink-400 to-purple-400 text-white px-8 py-4 rounded-full text-lg font-medium hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                Continue 💕
+            </button>
+        </div>
+
+        <!-- Easter Egg Cat -->
+        <div class="mt-8">
+            <span class="text-3xl cursor-pointer hover:scale-125 transition-transform inline-block easter-cat" onclick="showCatMessage(2)">
+                🙀
+            </span>
+        </div>
+    </section>
 
 
-<script src="script.js"></script>
+    <!-- Section 4: Emotional Confession -->
+    <section id="emotion" class="hidden min-h-screen flex flex-col justify-center items-center px-6 py-12 dusk-gradient">
+        
+        <div class="max-w-3xl w-full text-center relative z-10">
+            
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-white emotional-text" style="animation-delay: 0.3s">
+                Something I Need to Tell You 💭
+            </h2>
+
+            <div class="space-y-8">
+                
+                <div class="confession-text bg-white/10 backdrop-blur-md rounded-2xl p-8 text-white shadow-2xl" style="animation-delay: 0.6s">
+                    <p class="text-lg md:text-xl leading-relaxed">
+                        I know I'm not perfect, Mimi Ji. I forget things, I can be annoying, 
+                        and sometimes I don't express myself the right way...
+                    </p>
+                </div>
+
+                <div class="confession-text bg-white/10 backdrop-blur-md rounded-2xl p-8 text-white shadow-2xl" style="animation-delay: 0.9s">
+                    <p class="text-lg md:text-xl leading-relaxed">
+                        But there's one thing I've never forgotten, never doubted, 
+                        and never will — my feelings for you are real and honest.
+                    </p>
+                </div>
+
+                <div class="confession-text bg-white/10 backdrop-blur-md rounded-2xl p-8 text-white shadow-2xl" style="animation-delay: 1.2s">
+                    <p class="text-lg md:text-xl leading-relaxed">
+                        Talking to you makes my day better. Your messages make me smile. 
+                        You've become such an important part of my life, Meow Meow.
+                    </p>
+                </div>
+
+                <div class="confession-text bg-white/10 backdrop-blur-md rounded-2xl p-8 text-white shadow-2xl" style="animation-delay: 1.5s">
+                    <p class="text-lg md:text-xl leading-relaxed font-medium">
+                        I don't just like you... I'm genuinely, deeply, 
+                        completely in love with you. ❤️
+                    </p>
+                </div>
+
+            </div>
+
+            <button 
+                onclick="goToSection('proposal')" 
+                class="mt-12 bg-white text-purple-600 px-10 py-4 rounded-full text-lg font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 confession-text" style="animation-delay: 1.8s">
+                I'm Ready... 💕
+            </button>
+
+        </div>
+
+        <!-- Easter Egg Cat -->
+        <div class="mt-8">
+            <span class="text-3xl cursor-pointer hover:scale-125 transition-transform inline-block easter-cat" onclick="showCatMessage(3)">
+                😿
+            </span>
+        </div>
+    </section>
+
+
+    <!-- Section 5: The Big Question - Proposal -->
+    <section id="proposal" class="hidden min-h-screen flex flex-col justify-center items-center px-6 py-12 starry-night relative">
+        
+        <!-- Twinkling Stars -->
+        <div id="starsContainer" class="absolute inset-0 overflow-hidden pointer-events-none"></div>
+
+        <!-- Cute Cat Illustration -->
+        <div class="absolute bottom-8 left-8 text-6xl animate-float hidden md:block">
+            🐱💕
+        </div>
+
+        <div class="max-w-2xl w-full text-center relative z-10">
+            
+            <div class="mb-12 proposal-appear">
+                <span class="text-7xl md:text-8xl mb-6 block animate-pulse-slow">💝</span>
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                    Mimi Ji...<br>Meow Meow...
+                </h1>
+                <h2 class="text-3xl md:text-5xl font-bold text-pink-200 mb-8">
+                    Will you be my Valentine? 💕
+                </h2>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 mb-10 proposal-appear" style="animation-delay: 0.5s">
+                <p class="text-lg md:text-xl text-white leading-relaxed">
+                    I promise to keep trying my best, to cherish you, 
+                    to make you smile, and to love you with all my heart. 
+                    You deserve someone who sees how special you are — 
+                    and I see it every single day.
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center proposal-appear" style="animation-delay: 1s">
+                
+                <!-- YES Button -->
+                <button 
+                    onclick="celebrate()" 
+                    class="yes-button bg-gradient-to-r from-red-400 to-pink-500 text-white px-12 py-5 rounded-full text-2xl font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-110 glow-effect">
+                    YES! ❤️
+                </button>
+
+                <!-- NO Button (runs away on hover) -->
+                <button 
+                    id="noBtn" 
+                    class="no-button bg-gray-400/50 text-white px-12 py-5 rounded-full text-2xl font-bold transition-all duration-200">
+                    NO 😅
+                </button>
+                
+            </div>
+
+            <p class="mt-6 text-sm text-pink-200 italic proposal-appear" style="animation-delay: 1.2s">
+                (Try clicking "NO" if you're feeling playful 😼)
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- Section 6: Celebration -->
+    <section id="celebration" class="hidden min-h-screen flex flex-col justify-center items-center px-6 py-12 bg-gradient-to-br from-pink-100 to-purple-100 relative overflow-hidden">
+        
+        <!-- Confetti Container -->
+        <div id="confettiContainer" class="absolute inset-0 pointer-events-none"></div>
+
+        <!-- Animated Cats with Hearts -->
+        <div class="absolute top-20 left-10 text-5xl animate-bounce-slow hidden md:block">
+            😻💕
+        </div>
+        <div class="absolute top-32 right-16 text-5xl animate-bounce-slow hidden md:block" style="animation-delay: 0.5s">
+            💕😺
+        </div>
+
+        <div class="max-w-3xl w-full text-center relative z-10">
+            
+            <h1 class="text-5xl md:text-7xl font-bold text-pink-600 mb-8 celebration-text">
+                You Made Me The Happiest Human Alive! 🎉
+            </h1>
+
+            <div class="text-8xl mb-8 celebration-text" style="animation-delay: 0.3s">
+                💖✨🎊
+            </div>
+
+            <!-- Love Letter Card -->
+            <div class="love-letter bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-8">
+                
+                <div class="text-5xl mb-6">💌</div>
+                
+                <h2 class="text-3xl font-bold text-purple-600 mb-6">
+                    My Promise to You, Meow Meow
+                </h2>
+
+                <div class="text-left space-y-4 text-gray-700 leading-relaxed">
+                    <p class="flex items-start gap-3">
+                        <span class="text-2xl">💕</span>
+                        <span>I promise to keep improving and becoming a better version of myself for you.</span>
+                    </p>
+                    <p class="flex items-start gap-3">
+                        <span class="text-2xl">🌸</span>
+                        <span>I promise to always respect your emotions, your space, and your beautiful heart.</span>
+                    </p>
+                    <p class="flex items-start gap-3">
+                        <span class="text-2xl">✨</span>
+                        <span>I promise to love you gently, sincerely, and with everything I have.</span>
+                    </p>
+                    <p class="flex items-start gap-3">
+                        <span class="text-2xl">🐾</span>
+                        <span>I promise to cherish every moment with you, from the silly to the serious.</span>
+                    </p>
+                    <p class="flex items-start gap-3">
+                        <span class="text-2xl">💝</span>
+                        <span>I promise that my love for you is real, constant, and will never fade.</span>
+                    </p>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-pink-200">
+                    <p class="text-xl font-medium text-pink-600">
+                        Thank you for choosing me, Mimi Ji. ❤️
+                    </p>
+                    <p class="text-lg text-gray-600 mt-2">
+                        Forever yours,<br>
+                        <span class="font-semibold text-purple-600">Barfiee</span> 💕
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="text-sm text-gray-600 italic celebration-text" style="animation-delay: 0.6s">
+                P.S. - I'll try my best to remember important dates... no promises though 😅
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

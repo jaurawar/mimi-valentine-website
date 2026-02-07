@@ -1,30 +1,509 @@
-.typing {
-  overflow: hidden;
-  border-right: .15em solid pink;
-  white-space: nowrap;
-  animation: typing 3s steps(40, end), blink .75s step-end infinite;
+/* ============================================
+   ROMANTIC VALENTINE PROPOSAL WEBSITE STYLES
+   Created with love for Mimi Ji by Barfiee
+   ============================================ */
+
+/* === GLOBAL STYLES === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Smooth section transitions */
+section {
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+section.hidden {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transform: translateY(20px);
+}
+
+
+/* === TYPING ANIMATION === */
+.typing-animation {
+    overflow: hidden;
+    border-right: 0.15em solid #ec4899;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+    display: inline-block;
+    max-width: 100%;
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+    from { 
+        width: 0; 
+    }
+    to { 
+        width: 100%; 
+    }
 }
 
 @keyframes blink {
-  from, to { border-color: transparent }
-  50% { border-color: pink }
+    from, to { 
+        border-color: transparent; 
+    }
+    50% { 
+        border-color: #ec4899; 
+    }
 }
 
-.quiz-btn {
-  display: block;
-  margin: 10px auto;
-  padding: 12px 25px;
-  background: #f472b6;
-  color: white;
-  border-radius: 30px;
-  transition: 0.3s;
+/* Remove border after animation completes */
+.typing-animation.completed {
+    border-right: none;
+    animation: none;
 }
 
-.quiz-btn:hover {
-  background: #ec4899;
+
+/* === FLOATING HEARTS ANIMATION === */
+@keyframes float-up {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 24px;
+    animation: float-up linear infinite;
+    pointer-events: none;
+}
+
+
+/* === CAT PAWS ANIMATION === */
+.cat-paws {
+    font-size: 3rem;
+    animation: float-gentle 3s ease-in-out infinite;
+}
+
+@keyframes float-gentle {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+
+/* === POLAROID MEMORY CARDS === */
+.polaroid-card {
+    animation: fade-slide-up 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fade-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hidden compliments revealed on hover */
+.polaroid-card .hidden-compliment {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
+    margin-top: 0;
+}
+
+.polaroid-card:hover .hidden-compliment {
+    max-height: 100px;
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+
+/* === QUIZ STYLES === */
+.quiz-option {
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.quiz-option:hover {
+    background: linear-gradient(135deg, #fbcfe8 0%, #f9a8d4 100%);
+    border-color: #ec4899;
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+}
+
+.quiz-option:active {
+    transform: translateX(10px) scale(0.98);
+}
+
+/* Quiz question fade animation */
+.quiz-question {
+    animation: quiz-fade-in 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes quiz-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* === EMOTIONAL CONFESSION SECTION === */
+.dusk-gradient {
+    background: linear-gradient(180deg, 
+        #1e1b4b 0%,      /* Deep indigo */
+        #581c87 30%,     /* Deep purple */
+        #9333ea 60%,     /* Purple */
+        #ec4899 100%     /* Pink */
+    );
+    position: relative;
+}
+
+.emotional-text {
+    animation: emotional-fade-in 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes emotional-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.confession-text {
+    animation: confession-slide 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes confession-slide {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* === STARRY NIGHT PROPOSAL === */
+.starry-night {
+    background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Twinkling stars */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* Floating cat animation */
+@keyframes float-gentle-slow {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.animate-float {
+    animation: float-gentle-slow 4s ease-in-out infinite;
+}
+
+/* Proposal appearance animation */
+.proposal-appear {
+    animation: proposal-zoom 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes proposal-zoom {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* === YES/NO BUTTONS === */
+.yes-button {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glowing effect for YES button */
+.glow-effect {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.6),
+                0 0 40px rgba(239, 68, 68, 0.4),
+                0 0 60px rgba(239, 68, 68, 0.2);
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.6),
+                    0 0 40px rgba(239, 68, 68, 0.4),
+                    0 0 60px rgba(239, 68, 68, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(239, 68, 68, 0.8),
+                    0 0 60px rgba(239, 68, 68, 0.6),
+                    0 0 90px rgba(239, 68, 68, 0.4);
+    }
+}
+
+/* NO button - will be positioned absolutely via JS */
+.no-button {
+    cursor: pointer;
+}
+
+
+/* === CELEBRATION SECTION === */
+.celebration-text {
+    animation: celebration-bounce 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes celebration-bounce {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(-50px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.1) translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Love letter card animation */
+.love-letter {
+    animation: letter-appear 1s ease-out 0.5s forwards;
+    opacity: 0;
+    transform: scale(0.8) rotateX(-15deg);
+}
+
+@keyframes letter-appear {
+    to {
+        opacity: 1;
+        transform: scale(1) rotateX(0deg);
+    }
+}
+
+/* Confetti pieces */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ec4899;
+    animation: confetti-fall linear forwards;
+}
+
+@keyframes confetti-fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* === EASTER EGG ANIMATIONS === */
+.easter-cat {
+    filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.5));
+    transition: all 0.3s ease;
+}
+
+.easter-cat:hover {
+    filter: drop-shadow(0 0 20px rgba(236, 72, 153, 0.8));
+}
+
+@keyframes bounce-slow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 2s ease-in-out infinite;
+}
+
+
+/* === FADE-IN UTILITY === */
+.fade-in {
+    animation: fade-in 1s ease-out forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* === RESPONSIVE MOBILE OPTIMIZATIONS === */
+@media (max-width: 768px) {
+    .typing-animation {
+        font-size: 2rem;
+    }
+
+    .polaroid-card {
+        margin-bottom: 1rem;
+    }
+
+    .quiz-option {
+        font-size: 1rem;
+        padding: 0.875rem 1.25rem;
+    }
+
+    .confession-text {
+        font-size: 1rem;
+    }
+
+    .yes-button, .no-button {
+        font-size: 1.25rem;
+        padding: 1rem 2rem;
+    }
+}
+
+/* Ensure touch interactions work smoothly on mobile */
+@media (hover: none) and (pointer: coarse) {
+    .quiz-option:hover {
+        background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+        transform: none;
+    }
+
+    .quiz-option:active {
+        background: linear-gradient(135deg, #fbcfe8 0%, #f9a8d4 100%);
+        transform: scale(0.98);
+    }
+
+    .polaroid-card:hover .hidden-compliment {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    /* Show compliments on tap for mobile */
+    .polaroid-card:active .hidden-compliment {
+        max-height: 100px;
+        opacity: 1;
+        margin-top: 1rem;
+    }
+}
+
+
+/* === ACCESSIBILITY IMPROVEMENTS === */
+/* High contrast focus states */
+button:focus-visible {
+    outline: 3px solid #ec4899;
+    outline-offset: 4px;
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* === SCROLLBAR STYLING === */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fce7f3;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ec4899, #a855f7);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #db2777, #9333ea);
 }
