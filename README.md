@@ -1,12 +1,13 @@
 # 💖 Mimi Valentine Website
 
-A beautifully crafted, interactive Valentine proposal website created with love by Barfiee for Mimi Ji (Meow Meow).
+A beautifully crafted, interactive Valentine proposal website created with love by Barfiee for Mimi Ji (Meow Meow). This website captures the anticipation and excitement of meeting someone special for the first time.
 
 ## ✨ Features
 
 ### 🎨 Visual Design
 - **Romantic Color Palette**: Soft pinks, purples, and pastels creating a warm, dreamy atmosphere
 - **Smooth Animations**: Typing effects, floating hearts, twinkling stars, and gentle transitions
+- **Interactive Pop Cat**: Adorable clickable cat animation with sound effects (landing & celebration sections)
 - **Mobile-First Design**: Fully responsive and optimized for all devices
 - **Accessibility**: High contrast, readable fonts, and smooth animation timing
 
@@ -18,11 +19,12 @@ A beautifully crafted, interactive Valentine proposal website created with love 
    - Playful cat paw animations
    - Warm welcome message from Barfiee
 
-2. **How We Met Story**
+2. **How We'll Meet Story**
+   - Future-focused narrative about anticipation of meeting
    - Polaroid-style memory cards
    - Hover interactions revealing hidden compliments
    - Cinematic fade and slide animations
-   - Story of how Barfiee randomly messaged Mimi Ji
+   - Honest acknowledgment that you haven't met in person yet
 
 3. **Cat Personality Quiz**
    - 3 playful, romantic questions
@@ -70,6 +72,10 @@ valentine-website/
 ├── index.html          # Main HTML structure with all sections
 ├── style.css          # Custom CSS animations and styling
 ├── script.js          # Interactive functionality and Easter eggs
+├── assets/
+│   └── images/
+│       ├── cat-closed.jpg    # Pop cat closed mouth
+│       └── cat-open.jpg      # Pop cat open mouth
 └── README.md          # This file
 ```
 

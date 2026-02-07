@@ -41,8 +41,8 @@
         <div class="flex items-start gap-3">
             <span class="text-4xl">🐱</span>
             <div>
-                <p class="text-sm font-medium text-gray-700">Meow meow... don't leave! 🥺</p>
-                <p class="text-xs text-gray-500 mt-1">Barfiee worked hard on this...</p>
+                <p class="text-sm font-medium text-gray-700">Meow meow... don't go! 🥺</p>
+                <p class="text-xs text-gray-500 mt-1">Barfiee really wants to meet you...</p>
             </div>
         </div>
         <button onclick="closeIdlePopup()" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">✕</button>
@@ -57,7 +57,7 @@
         </button>
     </div>
 
-    <!-- Section 1: Landing Section with Animated Introduction -->
+    <!-- Section 1: Landing Section with Pop Cat -->
     <section id="landing" class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-12 relative">
         
         <!-- Animated Cat Paws -->
@@ -73,7 +73,7 @@
                 <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
                     This is <span class="font-semibold text-purple-600">Barfiee</span>...<br>
                     <span class="text-sm md:text-base italic text-gray-600">
-                        (yes, the forgetful one who somehow never forgot you 💕)
+                        (the one who's been dying to meet you in person 💕)
                     </span>
                 </p>
             </div>
@@ -81,14 +81,25 @@
             <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 mb-8 shadow-lg">
                 <p class="text-base md:text-lg text-gray-600">
                     ⚠️ <span class="font-medium">Warning:</span> This website contains<br>
-                    emotional vulnerability and one human deeply in love with you.
+                    future plans, hopeful thoughts, and one human already in love with you.
                 </p>
+            </div>
+
+            <!-- Interactive Pop Cat -->
+            <div class="mb-8">
+                <div class="inline-block cursor-pointer pop-cat-container" onclick="popCat()">
+                    <img id="popCatImage" 
+                         src="assets/images/cat-closed.jpg" 
+                         alt="Pop Cat" 
+                         class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full shadow-2xl transition-all duration-100">
+                    <p class="text-sm text-gray-500 mt-3 italic">Click the cat! 😸</p>
+                </div>
             </div>
 
             <button 
                 onclick="goToSection('story')" 
                 class="bg-gradient-to-r from-pink-400 to-purple-400 text-white px-8 py-4 rounded-full text-lg font-medium hover:shadow-2xl hover:scale-105 transition-all duration-300 transform hover:-translate-y-1">
-                Begin Observation Meow Meow 🐾
+                Begin Our Story Meow Meow 🐾
             </button>
 
             <!-- Hidden Easter Egg Cat -->
@@ -101,11 +112,11 @@
     </section>
 
 
-    <!-- Section 2: How We Met - Memory Cards -->
+    <!-- Section 2: How We'll Meet - Future Story -->
     <section id="story" class="hidden min-h-screen flex flex-col justify-center items-center px-6 py-12 relative">
         
         <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-purple-600 fade-in">
-            How Our Story Began ✨
+            Our Story (Coming Soon) ✨
         </h2>
 
         <div class="max-w-4xl w-full grid md:grid-cols-2 gap-8 mb-12">
@@ -116,11 +127,10 @@
                     <div class="text-6xl mb-4 text-center">📱</div>
                     <h3 class="text-xl font-bold text-pink-600 mb-3">Random Comment Section</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        Out of millions of reels in the universe, we met through a comment section. 
-                        I honestly don't even remember which reel it was...
+                        We met through Instagram comments on some random reel. I honestly can't even remember which one it was...
                     </p>
                     <div class="hidden-compliment mt-4 p-3 bg-pink-50 rounded-lg text-sm text-pink-700 italic">
-                        "But destiny knew what it was doing 💫"
+                        "But somehow, you caught my attention 💫"
                     </div>
                 </div>
             </div>
@@ -129,13 +139,12 @@
             <div class="polaroid-card" style="animation-delay: 0.2s">
                 <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
                     <div class="text-6xl mb-4 text-center">💬</div>
-                    <h3 class="text-xl font-bold text-purple-600 mb-3">First Message</h3>
+                    <h3 class="text-xl font-bold text-purple-600 mb-3">First Conversations</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        I messaged you randomly, probably said something silly. 
-                        Classic Barfiee move - impulsive but genuine.
+                        We started chatting, and I realized you're not just beautiful—you're genuinely interesting to talk to.
                     </p>
                     <div class="hidden-compliment mt-4 p-3 bg-purple-50 rounded-lg text-sm text-purple-700 italic">
-                        "Best random decision I ever made 🎯"
+                        "Every conversation made me want to know you more 🎯"
                     </div>
                 </div>
             </div>
@@ -144,13 +153,12 @@
             <div class="polaroid-card" style="animation-delay: 0.4s">
                 <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
                     <div class="text-6xl mb-4 text-center">🌟</div>
-                    <h3 class="text-xl font-bold text-pink-600 mb-3">The Connection</h3>
+                    <h3 class="text-xl font-bold text-pink-600 mb-3">The Wait</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        We started talking, and somehow... you didn't run away from my chaos. 
-                        You became my favorite notification.
+                        We haven't met in person yet, but honestly? I'm already excited just thinking about it.
                     </p>
                     <div class="hidden-compliment mt-4 p-3 bg-pink-50 rounded-lg text-sm text-pink-700 italic">
-                        "You're the calm to my storm 🌸"
+                        "I wonder what our first meeting will be like 🌸"
                     </div>
                 </div>
             </div>
@@ -159,13 +167,12 @@
             <div class="polaroid-card" style="animation-delay: 0.6s">
                 <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
                     <div class="text-6xl mb-4 text-center">❤️</div>
-                    <h3 class="text-xl font-bold text-purple-600 mb-3">Never Forgot You</h3>
+                    <h3 class="text-xl font-bold text-purple-600 mb-3">Looking Forward</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        I may forget where I kept my keys, what I ate yesterday, or even that reel... 
-                        but I never forgot you, Mimi Ji. Never will.
+                        I might forget random stuff, but I'll never forget how you make me feel—even through a screen.
                     </p>
                     <div class="hidden-compliment mt-4 p-3 bg-purple-50 rounded-lg text-sm text-purple-700 italic">
-                        "You're unforgettable, Meow Meow 💖"
+                        "Can't wait to meet you for real, Meow Meow 💖"
                     </div>
                 </div>
             </div>
@@ -204,24 +211,24 @@
             <!-- Question 1 -->
             <div class="quiz-question active bg-white rounded-2xl shadow-xl p-8 mb-6">
                 <h3 class="text-2xl font-bold text-purple-600 mb-6">
-                    Question 1: What's your ideal way to spend time?
+                    Question 1: What's your ideal first date?
                 </h3>
                 <div class="space-y-4">
                     <button onclick="selectAnswer(1, 'Queen Cat')" class="quiz-option">
                         <span class="text-3xl mr-3">👑</span>
-                        <span>Being pampered and adored (Queen Cat)</span>
+                        <span>Something fancy and memorable (Queen Cat)</span>
                     </button>
                     <button onclick="selectAnswer(1, 'Lazy Cat')" class="quiz-option">
                         <span class="text-3xl mr-3">😴</span>
-                        <span>Cozy naps in warm spots (Lazy Cat)</span>
+                        <span>Cozy café with good vibes (Lazy Cat)</span>
                     </button>
                     <button onclick="selectAnswer(1, 'Playful Cat')" class="quiz-option">
                         <span class="text-3xl mr-3">😼</span>
-                        <span>Playful mischief and fun (Mischievous Cat)</span>
+                        <span>Fun activity or adventure (Mischievous Cat)</span>
                     </button>
                     <button onclick="selectAnswer(1, 'Gentle Cat')" class="quiz-option">
                         <span class="text-3xl mr-3">😻</span>
-                        <span>Gentle cuddles and purrs (Gentle Cat)</span>
+                        <span>Simple walk and deep conversation (Gentle Cat)</span>
                     </button>
                 </div>
             </div>
@@ -229,24 +236,24 @@
             <!-- Question 2 -->
             <div class="quiz-question bg-white rounded-2xl shadow-xl p-8 mb-6" style="display: none;">
                 <h3 class="text-2xl font-bold text-pink-600 mb-6">
-                    Question 2: How do you handle Barfiee's forgetfulness?
+                    Question 2: How would you react when we finally meet?
                 </h3>
                 <div class="space-y-4">
                     <button onclick="selectAnswer(2, 'Patient')" class="quiz-option">
                         <span class="text-3xl mr-3">😌</span>
-                        <span>With patience and gentle reminders</span>
+                        <span>Calm and collected on the outside</span>
                     </button>
                     <button onclick="selectAnswer(2, 'Amused')" class="quiz-option">
                         <span class="text-3xl mr-3">😄</span>
-                        <span>Find it cute and amusing</span>
+                        <span>Excited and can't hide it</span>
                     </button>
                     <button onclick="selectAnswer(2, 'Playfully Annoyed')" class="quiz-option">
                         <span class="text-3xl mr-3">😾</span>
-                        <span>Get playfully annoyed (but still love him)</span>
+                        <span>A bit nervous but trying to be cool</span>
                     </button>
                     <button onclick="selectAnswer(2, 'Helpful')" class="quiz-option">
                         <span class="text-3xl mr-3">💕</span>
-                        <span>Help him remember with love</span>
+                        <span>Shy but genuinely happy</span>
                     </button>
                 </div>
             </div>
@@ -254,24 +261,24 @@
             <!-- Question 3 -->
             <div class="quiz-question bg-white rounded-2xl shadow-xl p-8 mb-6" style="display: none;">
                 <h3 class="text-2xl font-bold text-purple-600 mb-6">
-                    Question 3: Your perfect evening with Barfiee?
+                    Question 3: When Barfiee forgets something important, you'd...
                 </h3>
                 <div class="space-y-4">
                     <button onclick="selectAnswer(3, 'Romantic')" class="quiz-option">
                         <span class="text-3xl mr-3">🌹</span>
-                        <span>Romantic dinner and sweet conversations</span>
+                        <span>Remind him gently (you find it cute)</span>
                     </button>
                     <button onclick="selectAnswer(3, 'Cozy')" class="quiz-option">
                         <span class="text-3xl mr-3">🛋️</span>
-                        <span>Cozy time at home, just being together</span>
+                        <span>Tease him a little but help anyway</span>
                     </button>
                     <button onclick="selectAnswer(3, 'Adventure')" class="quiz-option">
                         <span class="text-3xl mr-3">🎢</span>
-                        <span>Fun adventures and new experiences</span>
+                        <span>Pretend to be annoyed (but not really)</span>
                     </button>
                     <button onclick="selectAnswer(3, 'Simple')" class="quiz-option">
                         <span class="text-3xl mr-3">✨</span>
-                        <span>Simple moments that feel magical</span>
+                        <span>Just laugh and move on</span>
                     </button>
                 </div>
             </div>
@@ -281,10 +288,10 @@
         <!-- Quiz Result Placeholder -->
         <div id="quizResult" class="hidden max-w-2xl w-full bg-white rounded-2xl shadow-2xl p-8 text-center">
             <div class="text-7xl mb-4">😻</div>
-            <h3 class="text-3xl font-bold text-pink-600 mb-4">You're Perfect Just As You Are!</h3>
+            <h3 class="text-3xl font-bold text-pink-600 mb-4">You're Perfect Already!</h3>
             <p class="text-lg text-gray-700 mb-6">
-                No matter what kind of cat you are, you're MY favorite Meow Meow. 
-                Every trait, every quirk, every moment with you is precious to me.
+                Whatever kind of cat you are, you're exactly the Meow Meow I want to meet. 
+                Can't wait to know the real you even better.
             </p>
             <button 
                 onclick="goToSection('emotion')" 
@@ -315,29 +322,26 @@
                 
                 <div class="confession-text bg-white/10 backdrop-blur-md rounded-2xl p-8 text-white shadow-2xl" style="animation-delay: 0.6s">
                     <p class="text-lg md:text-xl leading-relaxed">
-                        I know I'm not perfect, Mimi Ji. I forget things, I can be annoying, 
-                        and sometimes I don't express myself the right way...
+                        I know we haven't met yet, Mimi Ji. And I know I can be forgetful and probably a bit chaotic...
                     </p>
                 </div>
 
                 <div class="confession-text bg-white/10 backdrop-blur-md rounded-2xl p-8 text-white shadow-2xl" style="animation-delay: 0.9s">
                     <p class="text-lg md:text-xl leading-relaxed">
-                        But there's one thing I've never forgotten, never doubted, 
-                        and never will — my feelings for you are real and honest.
+                        But there's something about you that makes me want to be better. More present. More thoughtful.
                     </p>
                 </div>
 
                 <div class="confession-text bg-white/10 backdrop-blur-md rounded-2xl p-8 text-white shadow-2xl" style="animation-delay: 1.2s">
                     <p class="text-lg md:text-xl leading-relaxed">
-                        Talking to you makes my day better. Your messages make me smile. 
-                        You've become such an important part of my life, Meow Meow.
+                        Every time we talk, I find myself smiling at my screen like an idiot. You've become the best part of my day, Meow Meow.
                     </p>
                 </div>
 
                 <div class="confession-text bg-white/10 backdrop-blur-md rounded-2xl p-8 text-white shadow-2xl" style="animation-delay: 1.5s">
                     <p class="text-lg md:text-xl leading-relaxed font-medium">
-                        I don't just like you... I'm genuinely, deeply, 
-                        completely in love with you. ❤️
+                        I know it might sound crazy, but... I think I'm already falling for you. 
+                        And I can't wait to tell you this in person. ❤️
                     </p>
                 </div>
 
@@ -385,10 +389,9 @@
 
             <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 mb-10 proposal-appear" style="animation-delay: 0.5s">
                 <p class="text-lg md:text-xl text-white leading-relaxed">
-                    I promise to keep trying my best, to cherish you, 
-                    to make you smile, and to love you with all my heart. 
-                    You deserve someone who sees how special you are — 
-                    and I see it every single day.
+                    I know we haven't met face-to-face yet, but I already know you're someone special. 
+                    I promise when we finally meet, I'll make it worth the wait. 
+                    I want to be someone who makes you smile, who makes you feel valued, and who never takes you for granted.
                 </p>
             </div>
 
@@ -411,7 +414,7 @@
             </div>
 
             <p class="mt-6 text-sm text-pink-200 italic proposal-appear" style="animation-delay: 1.2s">
-                (Try clicking "NO" if you're feeling playful 😼)
+                (Try hovering over "NO" if you're feeling playful 😼)
             </p>
 
         </div>
@@ -435,11 +438,22 @@
         <div class="max-w-3xl w-full text-center relative z-10">
             
             <h1 class="text-5xl md:text-7xl font-bold text-pink-600 mb-8 celebration-text">
-                You Made Me The Happiest Human Alive! 🎉
+                You Just Made My Day! 🎉
             </h1>
 
             <div class="text-8xl mb-8 celebration-text" style="animation-delay: 0.3s">
                 💖✨🎊
+            </div>
+
+            <!-- Interactive Pop Cat in Celebration -->
+            <div class="mb-8 celebration-text" style="animation-delay: 0.5s">
+                <div class="inline-block cursor-pointer pop-cat-container" onclick="popCat()">
+                    <img id="celebrationPopCat" 
+                         src="assets/images/cat-closed.jpg" 
+                         alt="Celebrating Pop Cat" 
+                         class="w-40 h-40 md:w-56 md:h-56 object-cover rounded-full shadow-2xl transition-all duration-100 mx-auto">
+                    <p class="text-sm text-pink-600 mt-3 font-medium">Celebrate with Meow Meow! 🎉</p>
+                </div>
             </div>
 
             <!-- Love Letter Card -->
@@ -454,32 +468,32 @@
                 <div class="text-left space-y-4 text-gray-700 leading-relaxed">
                     <p class="flex items-start gap-3">
                         <span class="text-2xl">💕</span>
-                        <span>I promise to keep improving and becoming a better version of myself for you.</span>
+                        <span>I promise to keep working on being less forgetful and more present for you.</span>
                     </p>
                     <p class="flex items-start gap-3">
                         <span class="text-2xl">🌸</span>
-                        <span>I promise to always respect your emotions, your space, and your beautiful heart.</span>
+                        <span>I promise to respect your time, your feelings, and your space—always.</span>
                     </p>
                     <p class="flex items-start gap-3">
                         <span class="text-2xl">✨</span>
-                        <span>I promise to love you gently, sincerely, and with everything I have.</span>
+                        <span>I promise that when we finally meet, I'll make it special and memorable.</span>
                     </p>
                     <p class="flex items-start gap-3">
                         <span class="text-2xl">🐾</span>
-                        <span>I promise to cherish every moment with you, from the silly to the serious.</span>
+                        <span>I promise to be someone you can count on, laugh with, and feel comfortable around.</span>
                     </p>
                     <p class="flex items-start gap-3">
                         <span class="text-2xl">💝</span>
-                        <span>I promise that my love for you is real, constant, and will never fade.</span>
+                        <span>I promise my feelings are genuine, and I'm really excited about where this could go.</span>
                     </p>
                 </div>
 
                 <div class="mt-8 pt-6 border-t border-pink-200">
                     <p class="text-xl font-medium text-pink-600">
-                        Thank you for choosing me, Mimi Ji. ❤️
+                        Thank you for saying yes, Mimi Ji. ❤️
                     </p>
                     <p class="text-lg text-gray-600 mt-2">
-                        Forever yours,<br>
+                        Can't wait to meet you,<br>
                         <span class="font-semibold text-purple-600">Barfiee</span> 💕
                     </p>
                 </div>
@@ -487,7 +501,7 @@
             </div>
 
             <div class="text-sm text-gray-600 italic celebration-text" style="animation-delay: 0.6s">
-                P.S. - I'll try my best to remember important dates... no promises though 😅
+                P.S. - I'll set, like, 10 reminders for our first date. Promise! 😅
             </div>
 
         </div>

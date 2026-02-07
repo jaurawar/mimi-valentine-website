@@ -100,6 +100,43 @@ section.hidden {
 }
 
 
+/* === POP CAT INTERACTIVE ANIMATION === */
+.pop-cat-container {
+    display: inline-block;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.pop-cat-container img {
+    transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+}
+
+.pop-cat-container:active img {
+    transform: scale(1.1) !important;
+}
+
+/* Hover effect for pop cat */
+.pop-cat-container:hover img {
+    filter: brightness(1.05);
+}
+
+/* Pop cat bounce animation */
+@keyframes pop-cat-bounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.pop-cat-active {
+    animation: pop-cat-bounce 0.3s ease-out;
+}
+
+
 /* === POLAROID MEMORY CARDS === */
 .polaroid-card {
     animation: fade-slide-up 0.8s ease-out forwards;

@@ -12,13 +12,14 @@ let quizAnswers = [];
 let currentQuizQuestion = 0;
 let idleTimer = null;
 let progressValue = 0;
+let isPopCatOpen = false;
 
 // Easter egg secret messages
 const secretMessages = [
-    "Barfiee thinks you're the most beautiful person in the world 🌟",
-    "Did you know? Barfiee smiles every time he sees your name on his screen 😊",
-    "Fun fact: Barfiee has probably forgotten what he had for breakfast, but never forgets you 💕",
-    "Barfiee's favorite notification sound? The one when you message him 💌"
+    "Barfiee thinks you're absolutely stunning 🌟",
+    "Did you know? Barfiee can't stop thinking about meeting you 😊",
+    "Fun fact: Barfiee has probably forgotten what he had for breakfast, but never forgets your messages 💕",
+    "Barfiee's favorite part of the day? When you text back 💌"
 ];
 
 
@@ -52,6 +53,79 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize starry night (will be hidden until proposal section)
     createStars();
 });
+
+
+// ========================================
+// POP CAT INTERACTIVE FEATURE
+// ========================================
+
+/**
+ * Toggle pop cat mouth open/closed with bounce animation
+ */
+function popCat() {
+    // Get both pop cat images (landing and celebration)
+    const landingCat = document.getElementById('popCatImage');
+    const celebrationCat = document.getElementById('celebrationPopCat');
+    
+    // Determine which cat to animate based on current section
+    const activeCat = currentSection === 'celebration' ? celebrationCat : landingCat;
+    
+    if (!activeCat) return;
+    
+    // Toggle cat state
+    isPopCatOpen = !isPopCatOpen;
+    
+    // Change image
+    if (isPopCatOpen) {
+        activeCat.src = 'assets/images/cat-open.jpg';
+        // Add bounce and scale animation
+        activeCat.style.transform = 'scale(1.1)';
+        playPopSound();
+    } else {
+        activeCat.src = 'assets/images/cat-closed.jpg';
+        activeCat.style.transform = 'scale(1)';
+    }
+    
+    // Reset scale after animation
+    setTimeout(() => {
+        activeCat.style.transform = 'scale(1)';
+    }, 150);
+}
+
+/**
+ * Play cute pop sound (using Web Audio API to generate sound)
+ */
+function playPopSound() {
+    try {
+        // Create audio context
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // Create oscillator (sound generator)
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        // Connect nodes
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        // Set sound properties for cute "pop" effect
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(800, audioContext.currentTime); // High pitch
+        oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.1);
+        
+        // Volume envelope
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15);
+        
+        // Play sound
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.15);
+        
+    } catch (error) {
+        // Silently fail if audio not supported
+        console.log('Audio not supported or blocked');
+    }
+}
 
 
 // ========================================
@@ -301,7 +375,7 @@ function runAwayFromCursor(btn) {
  * Show playful message if user somehow clicks NO
  */
 function showPlayfulMessage() {
-    alert("The button says no, but we both know you mean yes 😉💕");
+    alert("Come on, you know you want to say yes 😉💕");
 }
 
 
@@ -331,9 +405,6 @@ function launchCelebration() {
             createFloatingHeart(heartsContainer);
         }, i * 200);
     }
-    
-    // Play success sound effect (optional - commented out to avoid autoplay issues)
-    // playSuccessSound();
 }
 
 /**
@@ -508,32 +579,6 @@ function closeIdlePopup() {
 
 
 // ========================================
-// UTILITY FUNCTIONS
-// ========================================
-
-/**
- * Play success sound (optional)
- * Note: Browsers block autoplay, so this might not work without user interaction
- */
-function playSuccessSound() {
-    // This would require an audio file
-    // Example: const audio = new Audio('success.mp3');
-    // audio.play().catch(e => console.log('Audio autoplay prevented'));
-}
-
-/**
- * Smooth scroll to element
- * @param {string} elementId - ID of element to scroll to
- */
-function smoothScrollTo(elementId) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-}
-
-
-// ========================================
 // ACCESSIBILITY HELPERS
 // ========================================
 
@@ -545,6 +590,12 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeCatMessage();
         closeIdlePopup();
+    }
+    
+    // Spacebar can also trigger pop cat
+    if (e.key === ' ' && (e.target === document.body)) {
+        e.preventDefault();
+        popCat();
     }
 });
 
@@ -607,19 +658,4 @@ window.addEventListener('scroll', optimizedScroll);
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     console.log('%c💕 Valentine Website Debug Mode 💕', 'color: #ec4899; font-size: 16px; font-weight: bold;');
     console.log('Current section:', currentSection);
-}
-
-
-// ========================================
-// EXPORT FUNCTIONS (if using modules)
-// ========================================
-
-// For potential future use with modules
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        goToSection,
-        selectAnswer,
-        celebrate,
-        showCatMessage
-    };
 }
