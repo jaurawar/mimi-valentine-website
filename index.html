@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mimi Ji ❤️</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="bg-pink-50 text-gray-800">
+
+<!-- Landing Section -->
+<section class="h-screen flex flex-col justify-center items-center text-center px-6">
+
+<h1 class="text-4xl md:text-6xl font-bold mb-6 typing">
+Hi Mimi Ji...
+</h1>
+
+<p class="mb-6 text-lg">
+This website may contain emotional vulnerability and one forgetful human in love with you.
+</p>
+
+<button onclick="nextSection()" 
+class="bg-pink-400 text-white px-6 py-3 rounded-full hover:bg-pink-500 transition">
+Begin Observation 🐾
+</button>
+
+</section>
+
+
+<!-- Story Section -->
+<section id="story" class="hidden p-10 text-center">
+
+<h2 class="text-3xl font-bold mb-6">How We Met</h2>
+
+<p class="max-w-xl mx-auto text-lg">
+Out of all places in the universe...
+We met through a reel comment section.
+
+I don’t remember the reel...
+
+But I never forgot you ❤️
+</p>
+
+<button onclick="showQuiz()" 
+class="mt-8 bg-purple-400 text-white px-6 py-3 rounded-full">
+Continue
+</button>
+
+</section>
+
+
+<!-- Quiz Section -->
+<section id="quiz" class="hidden p-10 text-center">
+
+<h2 class="text-3xl font-bold mb-6">Important Question</h2>
+
+<p class="mb-6">If you were a cat, which one would you be?</p>
+
+<button onclick="saveAnswer('Queen Cat')" class="quiz-btn">Queen Cat 👑</button>
+<button onclick="saveAnswer('Lazy Cat')" class="quiz-btn">Lazy Cat 😴</button>
+<button onclick="saveAnswer('Mischievous Cat')" class="quiz-btn">Mischievous Cat 😼</button>
+
+</section>
+
+
+<!-- Emotional Section -->
+<section id="emotion" class="hidden p-10 text-center">
+
+<h2 class="text-3xl font-bold mb-6">Something Honest</h2>
+
+<p class="max-w-xl mx-auto text-lg">
+I know I annoy you sometimes...
+But I never joke about my feelings for you.
+
+Talking to you makes my day better.
+</p>
+
+<button onclick="showProposal()" 
+class="mt-8 bg-indigo-400 text-white px-6 py-3 rounded-full">
+Continue
+</button>
+
+</section>
+
+
+<!-- Proposal Section -->
+<section id="proposal" class="hidden h-screen flex flex-col justify-center items-center text-center">
+
+<h1 class="text-5xl font-bold mb-8">
+Mimi Ji... Will you be my Valentine?
+</h1>
+
+<div class="flex gap-6">
+<button onclick="celebrate()" 
+class="bg-red-400 text-white px-8 py-3 rounded-full text-xl">
+YES ❤️
+</button>
+
+<button id="noBtn" 
+class="bg-gray-300 px-8 py-3 rounded-full text-xl">
+NO 😅
+</button>
+</div>
+
+</section>
+
+
+<!-- Celebration -->
+<section id="celebration" class="hidden h-screen flex flex-col justify-center items-center text-center">
+
+<h1 class="text-5xl font-bold text-pink-500">
+You made me happiest human alive ❤️
+</h1>
+
+<p class="mt-4 text-lg">
+Thank you for choosing me Mimi Ji.
+</p>
+
+</section>
+
+
+<script src="script.js"></script>
+</body>
+</html>
